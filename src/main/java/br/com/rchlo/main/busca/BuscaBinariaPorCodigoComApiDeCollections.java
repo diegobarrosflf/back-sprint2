@@ -46,7 +46,7 @@ public class BuscaBinariaPorCodigoComApiDeCollections {
 
     }
 
-    private int executa(List<Produto> produtos, Produto produtoASerBuscado) {
+    public int executa(List<Produto> produtos, Produto produtoASerBuscado) {
         Collections.sort(produtos);
 
         int indiceEncontrado = Collections.binarySearch(produtos, produtoASerBuscado);
