@@ -6,6 +6,7 @@ import br.com.rchlo.domain.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FiltroDeProdutosPorCor {
 
@@ -24,6 +25,14 @@ public class FiltroDeProdutosPorCor {
             System.out.println(produto.getNome() + " (cod. " + produto.getCodigo() + " - " + produto.getPesoEmGramas() + " g) custa R$ " + produto.getPrecoEfetivo());
         }
 
+    }
+
+    public List<Produto> filtrarProdutoPorCor(List<Produto> produtos, Cor cor){
+        if(produtos != null && cor != null){
+            return produtos.stream().filter(p -> cor.equals(p.getCor())).collect(Collectors.toList());
+        }else{
+            throw new IllegalArgumentException("Argumento inválido");
+        }
     }
 
 }
