@@ -10,21 +10,21 @@ import java.util.List;
 public class FiltroDeProdutosPorFaixaDePreco {
 
     public static void main(String[] args) {
-        List<Produto> lis = ListaDeProdutos.lista();
+        List<Produto> produtos = ListaDeProdutos.lista();
 
-        BigDecimal mi = new BigDecimal("30.00");
-        BigDecimal ma = new BigDecimal("50.00");
+        BigDecimal valorMinimo = new BigDecimal("30.00");
+        BigDecimal valorMaximo = new BigDecimal("50.00");
 
-        List<Produto> lisFi = new ArrayList<>();
-        for (Produto x : lis) {
-            if ((x.getPrecoDesconto() != null ? x.getPrecoDesconto() : x.getPreco()).compareTo(mi) >= 0 &&
-                    (x.getPrecoDesconto() != null ? x.getPrecoDesconto() : x.getPreco()).compareTo(ma) <= 0) {
-                lisFi.add(x);
+        List<Produto> produtosPorFaixaDePreco = new ArrayList<>();
+        for (Produto produto : produtos) {
+            if ((produto.getPrecoEfetivo()).compareTo(valorMinimo) >= 0 &&
+                    (produto.getPrecoEfetivo()).compareTo(valorMaximo) <= 0) {
+                produtosPorFaixaDePreco.add(produto);
             }
         }
 
-        for (Produto x : lisFi) {
-            System.out.println(x.getNome() + " (cod. " + x.getCodigo() + " - " + x.getPesoEmGramas() + " g) custa R$ " + x.getPrecoEfetivo());
+        for (Produto produto : produtosPorFaixaDePreco) {
+            System.out.println(produto.getNome() + " (cod. " + produto.getCodigo() + " - " + produto.getPesoEmGramas() + " g) custa R$ " + produto.getPrecoEfetivo());
         }
 
     }
