@@ -5,7 +5,6 @@ import br.com.rchlo.domain.DadosCartao;
 import br.com.rchlo.domain.Pagamento;
 import br.com.rchlo.domain.StatusPagamento;
 import org.assertj.core.api.Assertions;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -160,7 +159,7 @@ class EstatisticasDePagamentoServiceTest {
                 .containsEntry(StatusPagamento.CONFIRMADO, 1L);
     }
 
-    @NotNull
+
     private List<Pagamento> removerPagamentoPorStatus(StatusPagamento status) {
         return pagamentos.stream()
                 .filter(pagamento -> !status.equals(pagamento.getStatus()))

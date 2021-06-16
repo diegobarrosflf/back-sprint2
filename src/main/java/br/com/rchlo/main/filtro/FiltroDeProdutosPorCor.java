@@ -28,9 +28,9 @@ public class FiltroDeProdutosPorCor {
     }
 
     public List<Produto> filtrarProdutoPorCor(List<Produto> produtos, Cor cor){
-        if(produtos != null && cor != null){
+        if (produtos != null && cor != null) {
             return produtos.stream().filter(p -> cor.equals(p.getCor())).collect(Collectors.toList());
-        }else{
+        } else {
             throw new IllegalArgumentException("Argumento inválido");
         }
     }
